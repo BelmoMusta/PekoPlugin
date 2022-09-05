@@ -1,0 +1,52 @@
+<idea-plugin>
+    <id>musta.belmo.peko.plugins</id>
+    <name>PekoPlugin</name>
+    <version>1.0</version>
+    <vendor email="belmokhtar.91@gmail.com" url="https://github.com/BelmoMusta">MustaBelmo</vendor>
+
+    <description><![CDATA[
+  This plugin removes the annotations over the methods and moves them back to the fields.
+  It also allows the use of lombok annotations to get rid of getters and setters
+
+                    Developed with ♥ by mustabelmo
+]]></description>
+
+    <change-notes><![CDATA[
+     First version
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="213.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="tools"
+                instance="musta.belmo.peko.plugins.AppSettingsConfigurable"
+                id="org.intellij.sdk.settings.AppSettingsConfigurable"
+                displayName="SDK: Application Settings Example"/>
+    </extensions>
+
+    <actions>
+        <group id="musta.belmo.peko.plugins.action.CustomDefaultActionGroup"
+               class="musta.belmo.peko.plugins.action.CustomDefaultActionGroup"
+               text="MustaActions" description="Musta Actions">
+
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <!-- Add your actions here -->
+            <action id="musta.belmo.peko.plugins.action.MavenVersionUpdateAction"
+                    class="musta.belmo.peko.plugins.action.MavenVersionUpdateAction"
+                    text="Upgrade maven version"
+                    description="description">
+            </action>
+
+        </group>
+    </actions>
+
+</idea-plugin>
